@@ -1,0 +1,5 @@
+radar_path,audio_path,text
+data/laser/utt0001_channel_x.wav,data/clean/utt0001.wav,the quick brown fox
+data/laser/utt0001_channel_y.wav,data/clean/utt0001.wav,the quick brown fox
+data/laser/utt0002_channel_x.wav,data/clean/utt0002.wav,jumps over the lazy dog
+data/laser/utt0002_channel_y.wav,data/clean/utt0002.wav,jumps over the lazy dog

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+outputs/
+checkpoints/
+logs/
+wandb/
+results/
+*.ckpt
+*.pt
+*.wav
+data/*.csv
+!data/example.csv
+.DS_Store

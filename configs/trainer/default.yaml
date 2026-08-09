@@ -1,0 +1,23 @@
+epochs: 60
+lr: 6.0e-4
+exp_decay: 0.9999945
+
+# loss weights
+lambda_mel:         6.0
+lambda_fm:          1.0
+lambda_mag:         3.0
+lambda_mrstft:      1.0
+lambda_mel_consist: 2.0   # mel(y_hat) ≈ denoised spec; set 0.0 for old_arch
+lambda_energy:      1.0   # per-frame RMS match; set 0.0 for old_arch
+lambda_mask:        0.3   # BCE loss on speech/silence mask predictor
+silence_threshold:  0.01  # RMS threshold for VAD pseudo-label (training only, not inference)
+
+# checkpointing
+ckpt_dir: "checkpoints"
+resume_path: null          # null = start from scratch; path string = explicit resume
+
+# compilation (requires GLIBC 2.34 / Triton; disable on older servers)
+use_compile: false
+
+# logging
+wandb_run_name: "audiola-${model.name}"

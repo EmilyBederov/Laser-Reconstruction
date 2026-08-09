@@ -1,0 +1,16 @@
+torch>=2.1
+torchaudio>=2.1
+pytorch-lightning>=2.1
+hydra-core>=1.3
+omegaconf>=2.3
+einops
+numpy
+scipy
+pandas
+librosa
+soundfile
+matplotlib
+pesq
+pystoi
+openai-whisper
+wandb

@@ -1,0 +1,15 @@
+name: audiolaser
+
+# architecture switches
+use_cross_channel_fusion: true
+use_sinusoidal_pe: false   # disabled: was disrupting decoder feature scale
+use_multi_scale_skips: true
+use_speech_mask: false   # disabled: random sigmoid init was halving output amplitude → plateau
+
+# discriminator
+disc_channel_mult: 0.5
+mpd_reshapes: [2, 3, 5, 7, 11]
+mrd_resolutions:
+  - [1024, 256, 1024]
+  - [2048, 512, 2048]
+  - [512,  128,  512]

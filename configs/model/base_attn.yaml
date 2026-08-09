@@ -1,0 +1,17 @@
+name: base_attn
+
+# Attention baseline: ConvFlashAttn on blocks 1-2, ConvFlashFF on blocks 3-4.
+# Controlled comparison vs base_dil — ONLY difference is MHA vs dilated in blocks 1-2.
+use_cross_channel_fusion: false
+use_sinusoidal_pe: false
+use_multi_scale_skips: true
+use_speech_mask: false
+use_attn_recon: true
+use_ffn_dil: true   # blocks 3-4 get ConvFlashFF (attn would OOM at T=49k/98k)
+
+disc_channel_mult: 0.5
+mpd_reshapes: [2, 3, 5, 7, 11]
+mrd_resolutions:
+  - [1024, 256, 1024]
+  - [2048, 512, 2048]
+  - [512,  128,  512]

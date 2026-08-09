@@ -1,0 +1,23 @@
+defaults:
+  - default
+
+# PHASE EXP 2 — strong RI loss on the standard time-domain backbone, full disc, long.
+# Warm-started from the proven magnitude model so we fine-tune toward phase rather
+# than relearn magnitude from scratch.
+warmstart_path: "checkpoints/audiolaser/last.ckpt"   # train the audiolaser model first, then fine-tune from it
+freeze_base:    false
+
+lambda_phase:   8.0         # STRONG complex-STFT (RI) loss (prior phaseloss used 2.0)
+lambda_phase_aw: 0.5
+lambda_mel_consist: 0.0
+lambda_energy:      0.0
+lambda_mask:        0.0
+mrstft_short_window: true
+
+epochs: 200
+lr:     4.0e-4
+
+ckpt_dir: "checkpoints/phase_riloss"
+resume_path: null
+
+wandb_run_name: "phase_riloss"

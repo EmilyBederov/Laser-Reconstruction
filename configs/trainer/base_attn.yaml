@@ -1,0 +1,15 @@
+defaults:
+  - default
+
+lambda_mel_consist: 0.0
+lambda_energy:      0.0
+lambda_mask:        0.0
+mrstft_short_window: true
+use_vad_input_masking: false  # VAD tested separately; breaks attn training (zero frames attend globally)
+
+epochs: 60
+lr:     6.0e-4
+
+ckpt_dir: "checkpoints/base_attn"
+resume_path: null
+wandb_run_name: "base_attn"

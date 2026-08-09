@@ -1,0 +1,20 @@
+name: phase_riloss
+
+# PHASE EXP 2 — standard backbone + STRONG complex-STFT (RI) loss + full disc.
+# Hypothesis: the prior RI run (new_arch_phaseloss) stuck because lambda_phase was
+# only 2.0, disc was halved (0.5), and it trained 60ep. Here: strong RI (8.0),
+# full disc (1.0), long (200ep), no architecture change — isolates whether phase
+# is learnable on the time-domain path with proper loss weight + supervision.
+use_cross_channel_fusion: true
+use_sinusoidal_pe: false
+use_multi_scale_skips: true
+use_speech_mask: false
+use_attn_recon: false
+use_ffn_dil: true
+
+disc_channel_mult: 1.0            # FULL discriminator
+mpd_reshapes: [2, 3, 5, 7, 11]
+mrd_resolutions:
+  - [1024, 256, 1024]
+  - [2048, 512, 2048]
+  - [512,  128,  512]
