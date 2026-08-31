@@ -125,15 +125,3 @@ If only one axis is available, pass `--x laser.wav` (it is used for both channel
 `hop_length_mel` 128, `max_frames` 768, `batch_size`.
 `configs/trainer/*.yaml`: `epochs`, `lr`, loss weights (`lambda_mel`, `lambda_mrstft`,
 `lambda_phase`, `lambda_adv`, `lambda_fm`), `ckpt_dir`, `warmstart_path`.
-
-## Citation
-
-```bibtex
-@mastersthesis{bederov_audiolaser,
-  title  = {Deep Cross-Modal Alignment for Speech Transcription and Reconstruction
-            from Laser Doppler Vibrometry},
-  author = {Bederov, Emily},
-  school = {Technion -- Israel Institute of Technology},
-  year   = {2026}
-}
-```
