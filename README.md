@@ -14,10 +14,15 @@ laser (X, Y)  ──►  log-mel  ──►  CrossChannelFusion ──► Denois
 
 ## Install
 
+Tested with **Python 3.10, CUDA 11.8, NVIDIA A100**. Training uses `bf16-mixed`
+precision, which requires an **Ampere or newer GPU** (A100 / L40S / H100 / H200);
+on older GPUs, lower the precision in the trainer config. Inference scripts fall
+back to FP32 automatically on CPU.
+
 ```bash
 conda create -n audiolaser python=3.10 -y
 conda activate audiolaser
-pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch==2.7.1 torchaudio==2.7.1 --index-url https://download.pytorch.org/whl/cu118
 pip install -r requirements.txt
 ```
 
