@@ -11,3 +11,4 @@ results/
 data/*.csv
 !data/example.csv
 .DS_Store
+!examples/**/*.wav
