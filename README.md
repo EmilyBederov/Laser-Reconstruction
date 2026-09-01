@@ -125,3 +125,22 @@ If only one axis is available, pass `--x laser.wav` (it is used for both channel
 `hop_length_mel` 128, `max_frames` 768, `batch_size`.
 `configs/trainer/*.yaml`: `epochs`, `lr`, loss weights (`lambda_mel`, `lambda_mrstft`,
 `lambda_phase`, `lambda_adv`, `lambda_fm`), `ckpt_dir`, `warmstart_path`.
+
+## Pretrained checkpoints
+
+Pre-trained checkpoints are on the Hugging Face Hub:
+**<https://huggingface.co/Emilyb5/laser-speech-checkpoints>**
+
+| file | `--model` |
+|---|---|
+| `reconstruction/audiolaser_main.ckpt` | `audiolaser` |
+| `reconstruction/audiolaser_phase_riloss.ckpt` | `phase_riloss` |
+
+Download one and pass it to `--ckpt` (match `--model` to the file). Runs on the
+bundled `examples/`:
+
+```bash
+hf download Emilyb5/laser-speech-checkpoints reconstruction/audiolaser_main.ckpt --local-dir ckpts
+python scripts/reconstruct.py --ckpt ckpts/reconstruction/audiolaser_main.ckpt --model audiolaser \
+    --x examples/channel_x/utt1.wav --y examples/channel_y/utt1.wav --out out.wav
+```
